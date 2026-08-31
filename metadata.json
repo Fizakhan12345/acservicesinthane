@@ -1,0 +1,6 @@
+{
+  "name": "AC Services in Thane",
+  "description": "Professional AC Service, Repair, Gas Filling, and Installation across Thane West, Thane East, Ghodbunder Road, and Kalwa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

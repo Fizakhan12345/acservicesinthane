@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="favArcGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#005CE6" />
+      <stop offset="60%" stop-color="#0080FF" />
+      <stop offset="100%" stop-color="#00C4FF" />
+    </linearGradient>
+
+    <linearGradient id="favSnowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0062E3" />
+      <stop offset="100%" stop-color="#0095FF" />
+    </linearGradient>
+
+    <linearGradient id="favAcBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="65%" stop-color="#F2F7FC" />
+      <stop offset="100%" stop-color="#D4E4F2" />
+    </linearGradient>
+
+    <linearGradient id="favAcCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B4CEE2" />
+      <stop offset="100%" stop-color="#E2EEF8" />
+    </linearGradient>
+
+    <linearGradient id="favLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+
+    <filter id="favShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#061B33" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Circular Arc -->
+  <path
+    d="M 140 22 C 205 22 258 75 258 140 C 258 152 255 165 248 176 C 242 152 228 130 202 96 C 170 56 125 44 78 54 C 46 61 25 78 16 104 C 12 115 10 127 10 140 C 10 205 63 258 128 260 C 101 260 76 250 56 233 C 27 210 10 173 10 140 C 10 70 68 22 140 22 Z"
+    fill="url(#favArcGrad)"
+  />
+  <path
+    d="M 20 104 C 10 124 10 140 10 140 C 10 200 58 248 118 258 C 84 246 53 222 36 185 C 22 148 22 115 32 88 Z"
+    fill="#00D2FF"
+    opacity="0.85"
+  />
+
+  <!-- Snowflake -->
+  <g transform="translate(186, 82) scale(1.15)" stroke="url(#favSnowGrad)" stroke-width="5.5" stroke-linecap="round">
+    <line x1="0" y1="-38" x2="0" y2="38" />
+    <line x1="-33" y1="-19" x2="33" y2="19" />
+    <line x1="-33" y1="19" x2="33" y2="-19" />
+    <path d="M-8 -27 L0 -38 L8 -27" fill="none" stroke-width="4.5" />
+    <path d="M-8 27 L0 38 L8 27" fill="none" stroke-width="4.5" />
+    <path d="M-27 -8 L-33 -19 L-20 -21" fill="none" stroke-width="4.5" />
+    <path d="M27 8 L33 19 L20 21" fill="none" stroke-width="4.5" />
+    <circle cx="0" cy="0" r="5" fill="#0062E3" />
+  </g>
+
+  <!-- AC Unit -->
+  <g filter="url(#favShadow)" transform="rotate(-4 140 135)">
+    <path
+      d="M 48 112 C 43 112 36 128 36 150 C 36 172 43 188 50 188 L 65 188 C 58 188 51 170 51 150 C 51 130 58 112 65 112 Z"
+      fill="url(#favAcCap)"
+      stroke="#95B5CE"
+      stroke-width="1.5"
+    />
+    <path
+      d="M 62 112 L 235 118 C 248 118 255 130 255 146 C 255 166 247 188 234 188 L 50 188 C 43 188 36 172 36 150 C 36 128 43 112 48 112 Z"
+      fill="url(#favAcBody)"
+      stroke="#ADCBE0"
+      stroke-width="1.8"
+    />
+    <path
+      d="M 60 115 L 234 121 C 242 121 249 128 249 135 L 56 128 C 52 128 57 115 60 115 Z"
+      fill="#FFFFFF"
+      opacity="0.95"
+    />
+    <path d="M 55 164 L 247 164 C 245 169 240 173 235 173 L 51 173 Z" fill="#0080FF" />
+    <path
+      d="M 58 171 L 241 171 C 242 171 244 175 242 181 C 238 184 234 185 228 185 L 56 185 C 51 185 50 181 52 175 Z"
+      fill="#081E38"
+    />
+    <rect x="65" y="174" width="162" height="5" rx="2.5" fill="#00C4FF" opacity="0.95" />
+    <circle cx="228" cy="153" r="3.2" fill="#16A34A" />
+    <circle cx="236" cy="153" r="2.8" fill="#00C4FF" />
+    <circle cx="244" cy="153" r="2.8" fill="#0080FF" />
+  </g>
+
+  <!-- Breeze Waves -->
+  <path
+    d="M 75 198 C 106 198 133 235 174 230 C 208 225 235 208 262 214"
+    stroke="#00C4FF"
+    stroke-width="7.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M 93 218 C 123 218 147 253 188 248 C 222 243 245 228 269 233"
+    stroke="#38BDF8"
+    stroke-width="6"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M 120 236 C 145 236 166 265 202 261 C 228 257 248 246 270 250"
+    stroke="#7DD3FC"
+    stroke-width="4.5"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Leaves -->
+  <g transform="translate(130, 245) rotate(-26) scale(1.1)">
+    <path d="M 0 0 C 16 -14 32 -7 36 14 C 20 18 5 11 0 0 Z" fill="url(#favLeafGrad)" />
+  </g>
+  <g transform="translate(242, 202) rotate(14) scale(0.95)">
+    <path d="M 0 0 C 14 -12 28 -6 32 12 C 18 16 4 10 0 0 Z" fill="url(#favLeafGrad)" />
+  </g>
+</svg>

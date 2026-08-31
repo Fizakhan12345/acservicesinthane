@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #0B72E7;
+    --primary-dark: #0856B2;
+    --secondary: #16A9E0;
+    --light-blue: #EAF6FF;
+    --bg-main: #FFFFFF;
+    --bg-section: #F7FAFC;
+    --text-main: #172033;
+    --text-muted: #5B6472;
+    --cta-green: #16A34A;
+    --cta-green-hover: #15803D;
+    --border-color: #E3EAF2;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #172033;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite 2s;
+}
+
+.animate-whatsapp-pulse {
+  animation: whatsapp-pulse 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom utility classes */
+.site-logo {
+  height: clamp(38px, 4.2vw, 54px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.bg-brand-primary { background-color: #0B72E7; }
+.bg-brand-primary-dark { background-color: #0856B2; }
+.bg-brand-secondary { background-color: #16A9E0; }
+.bg-brand-light { background-color: #EAF6FF; }
+.bg-brand-section { background-color: #F7FAFC; }
+.text-brand-primary { color: #0B72E7; }
+.text-brand-secondary { color: #16A9E0; }
+.text-brand-dark { color: #172033; }
+.text-brand-muted { color: #5B6472; }
+.border-brand { border-color: #E3EAF2; }
+.bg-brand-green { background-color: #16A34A; }
+.bg-brand-green:hover { background-color: #15803D; }
+.text-brand-green { color: #16A34A; }
