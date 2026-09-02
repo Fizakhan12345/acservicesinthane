@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
             className="flex items-center cursor-pointer group shrink-0"
           >
             <img
-              src="/logo.svg"
+              src="/ACServicesLogo.png"
               alt="AC Services in Thane"
               className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
               referrerPolicy="no-referrer"
@@ -192,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
           <div className="hidden md:flex items-center gap-2.5 shrink-0">
             <a
               id="header-call-btn"
-              href="tel:+918795496688"
+              href="tel:+917021455426"
               className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl text-sm font-bold text-[#0B72E7] hover:bg-[#EAF6FF] transition-colors border border-transparent hover:border-[#0B72E7]/20 whitespace-nowrap"
             >
               <span className="w-8 h-8 rounded-lg bg-[#EAF6FF] flex items-center justify-center text-[#0B72E7] shrink-0">
@@ -200,7 +200,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
               </span>
               <div className="text-left leading-tight hidden lg:block">
                 <span className="block text-[10px] font-medium text-[#5B6472]">Call Technician</span>
-                <span className="block text-xs font-black text-[#172033] tracking-tight">+91 8795496688</span>
+                <span className="block text-xs font-black text-[#172033] tracking-tight">+91 7021455426</span>
               </div>
             </a>
 
@@ -216,7 +216,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
           {/* Mobile / Tablet Hamburger & Quick Action Buttons */}
           <div className="flex items-center gap-1.5 xl:hidden">
             <a
-              href="tel:+918795496688"
+              href="tel:+917021455426"
               className="p-2 rounded-lg bg-[#EAF6FF] text-[#0B72E7] hover:bg-[#0B72E7] hover:text-white transition-colors"
               aria-label="Call Technician"
             >
@@ -224,7 +224,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
             </a>
 
             <a
-              href="https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+              href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-green-50 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"
@@ -356,11 +356,11 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
               Book Doorstep Service
             </button>
             <a
-              href="tel:+918795496688"
+              href="tel:+917021455426"
               className="w-full py-3 rounded-lg bg-[#EAF6FF] text-[#0B72E7] text-base font-bold text-center flex items-center justify-center gap-2 hover:bg-[#0B72E7] hover:text-white transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>Call: +91 8795496688</span>
+              <span>Call: +91 7021455426</span>
             </a>
           </div>
         </div>

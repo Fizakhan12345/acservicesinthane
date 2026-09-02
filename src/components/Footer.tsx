@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               className="cursor-pointer group inline-block"
             >
               <img
-                src="/logo.svg"
+                src="/ACServicesLogo.png"
                 alt="AC Services in Thane"
                 className="h-11 sm:h-12 w-auto object-contain bg-white/95 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-105 shadow-sm"
                 referrerPolicy="no-referrer"
@@ -60,11 +60,11 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
 
             <div className="space-y-2.5 pt-2 text-xs sm:text-sm text-slate-200">
               <a
-                href="tel:+918795496688"
+                href="tel:+917021455426"
                 className="flex items-center gap-2.5 hover:text-[#16A9E0] transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#0B72E7] shrink-0" />
-                <span className="font-bold">+91 8795496688</span>
+                <span className="font-bold">+91 7021455426</span>
               </a>
 
               <a
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
 
             <div className="pt-2">
               <a
-                href="https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+                href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold transition-colors"

@@ -22,7 +22,7 @@ export const FloatingWhatsApp: React.FC = () => {
 
       {/* Floating Button */}
       <a
-        href="https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+        href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp with AC Technician"

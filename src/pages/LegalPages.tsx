@@ -21,7 +21,7 @@ export const LegalPages: React.FC<LegalPageProps> = ({ type, navigate }) => {
           </p>
           <h2 className="text-xl font-bold text-[#172033]">1. Information We Collect</h2>
           <p>
-            When you request an AC technician visit via our website forms, phone call (+91 8795496688), or WhatsApp, we collect basic contact information including your full name, mobile number, service address/society in Thane, and details regarding your air conditioner model and service requirements.
+            When you request an AC technician visit via our website forms, phone call (+91 7021455426), or WhatsApp, we collect basic contact information including your full name, mobile number, service address/society in Thane, and details regarding your air conditioner model and service requirements.
           </p>
           <h2 className="text-xl font-bold text-[#172033]">2. Use of Information</h2>
           <p>

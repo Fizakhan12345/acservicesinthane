@@ -102,11 +102,11 @@ export const ACServiceVisualSection: React.FC<ACServiceVisualSectionProps> = ({ 
               </button>
 
               <a
-                href="tel:+918795496688"
+                href="tel:+917021455426"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#172033] border border-[#E3EAF2] text-sm font-bold shadow-xs hover:border-[#0B72E7]/40 transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#0B72E7]" />
-                <span>+91 8795496688</span>
+                <span>+91 7021455426</span>
               </a>
             </div>
           </div>

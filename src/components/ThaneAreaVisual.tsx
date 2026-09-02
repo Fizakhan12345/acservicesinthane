@@ -98,11 +98,11 @@ export const ThaneAreaVisual: React.FC<ThaneAreaVisualProps> = ({ navigate, onOp
               </button>
 
               <a
-                href="tel:+918795496688"
+                href="tel:+917021455426"
                 className="w-full sm:w-auto lg:w-full py-3.5 px-6 rounded-xl bg-[#172033] hover:bg-slate-900 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <Phone className="w-4 h-4 text-[#16A9E0]" />
-                <span>+91 8795496688</span>
+                <span>+91 7021455426</span>
               </a>
             </div>
           </div>

@@ -116,7 +116,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       `📅 *Preferred Date:* ${formData.preferredDate} (${formData.preferredSlot})\n` +
       `📝 *Issue Details:* ${formData.problemDescription || 'General servicing & cooling check'}`
     );
-    window.open(`https://wa.me/918795496688?text=${text}`, '_blank');
+    window.open(`https://wa.me/917021455426?text=${text}`, '_blank');
   };
 
   return (
@@ -194,11 +194,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <span>Send Confirmation on WhatsApp</span>
                 </button>
                 <a
-                  href="tel:+918795496688"
+                  href="tel:+917021455426"
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#0B72E7] hover:bg-[#0856B2] text-white font-bold text-sm shadow-xs transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  <span>Call +91 8795496688</span>
+                  <span>Call +91 7021455426</span>
                 </a>
               </div>
 

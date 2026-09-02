@@ -30,7 +30,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
       '@id': 'https://acservicesinthane.com/#business',
       name: 'AC Services in Thane',
       url: 'https://acservicesinthane.com/',
-      telephone: '+91 8795496688',
+      telephone: '+91 7021455426',
       email: 'acservicesinthane@gmail.com',
       image: 'https://acservicesinthane.com/logo.png',
       priceRange: '₹₹',
@@ -125,7 +125,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
         provider: {
           '@type': 'LocalBusiness',
           name: 'AC Services in Thane',
-          telephone: '+91 8795496688',
+          telephone: '+91 7021455426',
           address: {
             '@type': 'PostalAddress',
             addressLocality: 'Thane',
@@ -166,7 +166,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
         provider: {
           '@type': 'LocalBusiness',
           name: 'AC Services in Thane',
-          telephone: '+91 8795496688',
+          telephone: '+91 7021455426',
           email: 'acservicesinthane@gmail.com'
         },
         offers: {

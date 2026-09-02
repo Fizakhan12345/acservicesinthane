@@ -37,7 +37,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
     faqs: [
       { question: 'Do you offer Split AC repair in Thane West?', answer: 'Yes, we provide specialized Split AC repair, PCB troubleshooting, cooling coil servicing, and motor repairs throughout Thane West.' },
       { question: 'Can I get same-day AC maintenance in Thane West?', answer: 'Yes, our local technicians are stationed across Thane West to facilitate fast same-day response depending on current booking slots.' },
-      { question: 'How do I book an AC technician visit in Thane West?', answer: 'You can book by calling +91 8795496688, messaging on WhatsApp, or submitting our online service request form.' },
+      { question: 'How do I book an AC technician visit in Thane West?', answer: 'You can book by calling +91 7021455426, messaging on WhatsApp, or submitting our online service request form.' },
       { question: 'Do you handle commercial AC servicing for offices in Thane West?', answer: 'Yes, we service commercial split, cassette, and tower AC units for offices, clinics, retail shops, and restaurants in Thane West.' },
       { question: 'What causes AC water leakage in Thane West apartments?', answer: 'Blocked condensate drain pipes, algae sludge in the internal drain tray, or tilted indoor unit mounting are the primary causes, all resolvable via deep cleaning.' }
     ]
@@ -311,7 +311,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
     commonIssues: ['Heavy dust intake on outdoor units', 'Capacitor wear from high ambient temperatures', 'Drainage pipe blockages'],
     nearbyLocalities: ['Panch Pakhadi', 'Louis Wadi', 'Naupada', 'Wagle Estate', 'Kopri'],
     faqs: [
-      { question: 'How do I book AC repair near Teen Hath Naka?', answer: 'Call +91 8795496688 or use our online form for fast doorstep technician dispatch.' }
+      { question: 'How do I book AC repair near Teen Hath Naka?', answer: 'Call +91 7021455426 or use our online form for fast doorstep technician dispatch.' }
     ]
   },
   {
@@ -513,7 +513,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
     nearbyLocalities: ['Majiwada', 'Balkum', 'Dhokali', 'Manpada', 'Vasant Vihar', 'Kolshet'],
     faqs: [
       { question: 'Do you provide AC repair in Kapurbawdi?', answer: 'Yes. AC Services in Thane provides AC inspection, repair, gas filling, and maintenance services for customers in Kapurbawdi, subject to technician availability and service requirements.' },
-      { question: 'Can I book a technician for Split AC servicing in Kapurbawdi online?', answer: 'Yes, you can submit your details online or call +91 8795496688 to book an appointment.' },
+      { question: 'Can I book a technician for Split AC servicing in Kapurbawdi online?', answer: 'Yes, you can submit your details online or call +91 7021455426 to book an appointment.' },
       { question: 'What AC problems can you inspect in Kapurbawdi apartments?', answer: 'We inspect cooling loss, gas leaks, indoor water dripping, compressor tripping, unusual fan noises, and electrical PCB issues.' },
       { question: 'Do you service Daikin and Voltas ACs in Kapurbawdi?', answer: 'Yes, we service all brands including Daikin, Voltas, LG, Bluestar, Samsung, Hitachi, and Mitsubishi.' },
       { question: 'Do you provide emergency AC repair in Kapurbawdi during summer?', answer: 'Yes, we prioritize same-day emergency inspection slots across Kapurbawdi during peak summer.' }
@@ -627,7 +627,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
     faqs: [
       { question: 'Do your technicians follow society guidelines and cleanliness protocols in Hiranandani Estate?', answer: 'Yes, our technicians carry floor covers, wear shoe protectors, and use high-end collection jackets for a clean, mess-free service.' },
       { question: 'Can you service Inverter ACs and VRV units in Rodas Enclave and Hiranandani Estate?', answer: 'Yes, we are highly experienced in servicing luxury brand inverter and multi-split ACs.' },
-      { question: 'How can I book a weekend AC servicing slot in Hiranandani Estate?', answer: 'Call +91 8795496688 or reserve your preferred date and time online for weekend appointments.' }
+      { question: 'How can I book a weekend AC servicing slot in Hiranandani Estate?', answer: 'Call +91 7021455426 or reserve your preferred date and time online for weekend appointments.' }
     ]
   },
   {
@@ -875,7 +875,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
       { question: 'Can you fix Split AC water leaking inside the room in Kalwa?', answer: 'Yes, our technician flushes out the blocked drain pipe and levels the indoor unit to stop water leaks permanently.' },
       { question: 'What is the cost of AC servicing in Kalwa?', answer: 'Our standard jet pump foam servicing starts at transparent rates with no hidden charges.' },
       { question: 'Do you repair Inverter ACs in Kalwa residential societies?', answer: 'Yes, we repair Inverter AC circuit boards (PCB), sensors, BLDC fan motors, and compressors.' },
-      { question: 'How do I book an AC technician visit in Kalwa?', answer: 'You can book instantly by calling +91 8795496688 or using our WhatsApp booking link.' }
+      { question: 'How do I book an AC technician visit in Kalwa?', answer: 'You can book instantly by calling +91 7021455426 or using our WhatsApp booking link.' }
     ]
   },
 
@@ -948,7 +948,7 @@ const BASE_LOCATIONS_DATA: Omit<LocationData, 'metaTitle' | 'metaDescription'>[]
     nearbyLocalities: ['Majiwada', 'Lodha Amara', 'Kapurbawdi', 'Rustomjee Urbania', 'Panch Pakhadi'],
     faqs: [
       { question: 'Do you service luxury Inverter Split ACs in Lodha Luxuria, Majiwada?', answer: 'Yes, our experienced technicians handle high-end Inverter and Multi-Split AC systems in Lodha Luxuria.' },
-      { question: 'How can I schedule an AC technician visit for Lodha Luxuria?', answer: 'Call +91 8795496688 or reserve your appointment online through our quick booking form.' },
+      { question: 'How can I schedule an AC technician visit for Lodha Luxuria?', answer: 'Call +91 7021455426 or reserve your appointment online through our quick booking form.' },
       { question: 'Do you provide nitrogen leak detection and R32 gas charging in Lodha Luxuria?', answer: 'Yes, we conduct comprehensive pressure leak testing and top-tier gas charging with warranty on workmanship.' }
     ]
   }

@@ -119,15 +119,15 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
                 </button>
 
                 <a
-                  href="tel:+918795496688"
+                  href="tel:+917021455426"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#172033] border border-[#E3EAF2] font-bold text-base shadow-xs hover:border-[#0B72E7]/40 transition-colors whitespace-nowrap"
                 >
                   <Phone className="w-5 h-5 text-[#0B72E7] shrink-0" />
-                  <span>Call +91 8795496688</span>
+                  <span>Call +91 7021455426</span>
                 </a>
 
                 <a
-                  href={`https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
+                  href={`https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-xs transition-colors whitespace-nowrap"
@@ -363,11 +363,11 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
                   Schedule AC Service Online
                 </button>
                 <a
-                  href="tel:+918795496688"
+                  href="tel:+917021455426"
                   className="w-full py-2.5 rounded-xl bg-[#F7FAFC] hover:bg-slate-100 text-[#172033] border border-[#E3EAF2] font-bold text-xs flex items-center justify-center gap-2 transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#0B72E7]" />
-                  <span>Direct Call: +91 8795496688</span>
+                  <span>Direct Call: +91 7021455426</span>
                 </a>
               </div>
             </div>
@@ -441,15 +441,15 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
             </button>
 
             <a
-              href="tel:+918795496688"
+              href="tel:+917021455426"
               className="px-6 py-3 rounded-xl bg-[#172033] hover:bg-slate-900 text-white font-extrabold text-sm shadow-md transition-colors flex items-center gap-2"
             >
               <Phone className="w-4 h-4 text-[#16A9E0]" />
-              <span>+91 8795496688</span>
+              <span>+91 7021455426</span>
             </a>
 
             <a
-              href={`https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
+              href={`https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-sm shadow-md transition-colors flex items-center gap-2"

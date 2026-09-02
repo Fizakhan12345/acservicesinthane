@@ -58,7 +58,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onOpenBooking }) =
     },
     {
       question: 'Can I book an AC technician by phone or WhatsApp?',
-      answer: 'Yes! You can call us directly at +91 8795496688, message us on WhatsApp, or use our instant online booking form to schedule a convenient morning, afternoon, or evening visit.'
+      answer: 'Yes! You can call us directly at +91 7021455426, message us on WhatsApp, or use our instant online booking form to schedule a convenient morning, afternoon, or evening visit.'
     },
     {
       question: 'Do you provide AC gas filling and leakage testing in Thane?',
@@ -343,16 +343,16 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onOpenBooking }) =
 
               <a
                 id="final-call-btn"
-                href="tel:+918795496688"
+                href="tel:+917021455426"
                 className="px-7 py-4 rounded-xl bg-white hover:bg-slate-50 text-[#172033] border border-[#E3EAF2] hover:border-[#0B72E7]/40 font-bold text-base shadow-xs transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
               >
                 <Phone className="w-5 h-5 text-[#0B72E7]" />
-                <span>Call +91 8795496688</span>
+                <span>Call +91 7021455426</span>
               </a>
 
               <a
                 id="final-whatsapp-btn"
-                href="https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+                href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-7 py-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-xs transition-all transform hover:-translate-y-0.5 flex items-center gap-2"

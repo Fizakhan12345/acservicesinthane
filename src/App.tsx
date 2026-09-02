@@ -124,7 +124,7 @@ export default function App() {
   // Update Page Title and Meta description on route change
   useEffect(() => {
     let title = 'AC Service in Thane | AC Repair in Thane';
-    let metaDesc = 'Professional AC service, repair, gas filling, and installation in Thane West, Thane East, Ghodbunder Road, and Kalwa. Call +91 8795496688.';
+    let metaDesc = 'Professional AC service, repair, gas filling, and installation in Thane West, Thane East, Ghodbunder Road, and Kalwa. Call +91 7021455426.';
 
     if (currentRoute.type === 'location' && currentRoute.slug) {
       const loc = getLocationBySlug(currentRoute.slug);
@@ -136,7 +136,7 @@ export default function App() {
       const srv = getServiceBySlug(currentRoute.slug);
       if (srv) {
         title = `${srv.title} in Thane | AC Services in Thane`;
-        metaDesc = `${srv.shortDesc} Available across Thane West, East, Ghodbunder Road & Kalwa. Call +91 8795496688.`;
+        metaDesc = `${srv.shortDesc} Available across Thane West, East, Ghodbunder Road & Kalwa. Call +91 7021455426.`;
       }
     } else if (currentRoute.type === 'blog-detail' && currentRoute.slug) {
       const blog = getBlogBySlug(currentRoute.slug);
@@ -154,8 +154,8 @@ export default function App() {
       title = 'About Us | AC Services in Thane';
       metaDesc = 'Learn about AC Services in Thane—delivering transparent, reliable doorstep air conditioner maintenance and repair across Thane.';
     } else if (currentRoute.type === 'contact') {
-      title = 'Contact AC Services in Thane | +91 8795496688';
-      metaDesc = 'Contact our Thane AC service coordinator at +91 8795496688 or acservicesinthane@gmail.com for doorstep technician scheduling.';
+      title = 'Contact AC Services in Thane | +91 7021455426';
+      metaDesc = 'Contact our Thane AC service coordinator at +91 7021455426 or acservicesinthane@gmail.com for doorstep technician scheduling.';
     } else if (currentRoute.type === 'blog-list') {
       title = 'AC Maintenance Guides & Troubleshooting | AC Services in Thane';
       metaDesc = 'Expert air conditioner troubleshooting, filter cleaning, and energy saving tips for Thane homeowners and businesses.';
@@ -316,7 +316,7 @@ export default function App() {
                 },
                 {
                   question: 'Can I book an AC technician by phone or WhatsApp?',
-                  answer: 'Yes! You can call us directly at +91 8795496688, message us on WhatsApp, or use our instant online booking form to schedule a convenient morning, afternoon, or evening visit.'
+                  answer: 'Yes! You can call us directly at +91 7021455426, message us on WhatsApp, or use our instant online booking form to schedule a convenient morning, afternoon, or evening visit.'
                 },
                 {
                   question: 'Do you provide AC gas filling and leakage testing in Thane?',

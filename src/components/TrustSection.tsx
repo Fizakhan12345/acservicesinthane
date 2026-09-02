@@ -67,7 +67,7 @@ export const TrustSection: React.FC<TrustSectionProps> = ({ onOpenBooking }) => 
     {
       step: '1',
       title: 'Call or WhatsApp',
-      desc: 'Reach us at +91 8795496688 or send a quick WhatsApp message with your locality and convenient time.',
+      desc: 'Reach us at +91 7021455426 or send a quick WhatsApp message with your locality and convenient time.',
       icon: PhoneCall
     },
     {

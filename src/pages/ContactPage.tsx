@@ -36,7 +36,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
       `🛠️ *Service:* ${formData.service}\n` +
       `📝 *Message:* ${formData.message || 'Need AC service support'}`
     );
-    window.open(`https://wa.me/918795496688?text=${text}`, '_blank');
+    window.open(`https://wa.me/917021455426?text=${text}`, '_blank');
   };
 
   return (
@@ -74,7 +74,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
                 <div className="space-y-4 text-sm">
                   {/* Phone */}
                   <a
-                    href="tel:+918795496688"
+                    href="tel:+917021455426"
                     className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#EAF6FF] transition-colors group"
                   >
                     <div className="w-10 h-10 rounded-lg bg-[#EAF6FF] group-hover:bg-[#0B72E7] text-[#0B72E7] group-hover:text-white flex items-center justify-center shrink-0 transition-colors">
@@ -83,7 +83,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
                     <div>
                       <span className="block text-xs text-[#5B6472] font-medium">Customer Hotline</span>
                       <span className="block font-bold text-base text-[#172033] group-hover:text-[#0B72E7] transition-colors">
-                        +91 8795496688
+                        +91 7021455426
                       </span>
                       <span className="text-[11px] text-[#16A34A] font-semibold">Open for Calls 7 Days a Week</span>
                     </div>
@@ -91,7 +91,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
 
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/918795496688?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+                    href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-green-50 transition-colors group"
@@ -102,7 +102,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
                     <div>
                       <span className="block text-xs text-[#5B6472] font-medium">Instant WhatsApp Chat</span>
                       <span className="block font-bold text-base text-[#172033] group-hover:text-[#25D366] transition-colors">
-                        +91 8795496688
+                        +91 7021455426
                       </span>
                       <span className="text-[11px] text-[#5B6472]">Share photo/video of AC problem</span>
                     </div>

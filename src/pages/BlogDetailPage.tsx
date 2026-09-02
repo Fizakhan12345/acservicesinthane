@@ -92,10 +92,10 @@ export const BlogDetailPage: React.FC<BlogDetailPageProps> = ({
                 Schedule Doorstep Visit
               </button>
               <a
-                href="tel:+918795496688"
+                href="tel:+917021455426"
                 className="px-5 py-2.5 rounded-lg bg-white hover:bg-slate-50 text-[#172033] border border-[#E3EAF2] font-bold text-xs transition-colors"
               >
-                Call +91 8795496688
+                Call +91 7021455426
               </a>
             </div>
           </div>
