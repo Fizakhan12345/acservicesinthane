@@ -102,6 +102,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     const ref = 'THN-' + Math.floor(100000 + Math.random() * 900000);
     setBookingRef(ref);
     setSubmitted(true);
+     handleWhatsAppDirect(); 
   };
 
   const handleWhatsAppDirect = () => {
@@ -296,20 +297,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   />
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-[#172033] mb-1">
-                    Mobile Phone Number *
-                  </label>
-                  <input
-                    id="booking-phone-input"
-                    type="tel"
-                    required
-                    placeholder="+91 98765 43210"
-                    value={formData.phone}
-                    onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#F7FAFC] border border-[#E3EAF2] rounded-lg px-3 py-2 text-sm text-[#172033] focus:outline-hidden focus:ring-2 focus:ring-[#0B72E7]/40 focus:border-[#0B72E7]"
-                  />
-                </div>
+             <div>
+  <label className="block text-xs font-bold text-[#172033] mb-1">
+    Mobile Phone Number *
+  </label>
+  <input
+    id="booking-phone-input"
+    type="tel"
+    required
+    inputMode="numeric"
+    pattern="[0-9]{10}"
+    maxLength={10}
+    placeholder="98765 43210"
+    value={formData.phone}
+    onChange={e => {
+      const digitsOnly = e.target.value.replace(/\D/g, '');
+      setFormData({ ...formData, phone: digitsOnly });
+    }}
+    className="w-full bg-[#F7FAFC] border border-[#E3EAF2] rounded-lg px-3 py-2 text-sm text-[#172033] focus:outline-hidden focus:ring-2 focus:ring-[#0B72E7]/40 focus:border-[#0B72E7]"
+  />
+</div>
               </div>
 
               {/* Address / Society */}
