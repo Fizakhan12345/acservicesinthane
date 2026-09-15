@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { PageRoute } from './types';
 import { getLocationBySlug } from './data/locations';
 import { getServiceBySlug } from './data/services';
@@ -24,6 +25,10 @@ import { LegalPages } from './pages/LegalPages';
 import { FAQAccordion } from './components/FAQAccordion';
 import { BrandSlider } from './components/BrandSlider';
 
+const SITE_NAME = 'AC Services in Thane';
+const DEFAULT_TITLE = 'AC Service in Thane | AC Repair in Thane';
+const DEFAULT_DESC = 'Professional AC service, repair, gas filling, and installation in Thane West, Thane East, Ghodbunder Road, and Kalwa. Call +91 7021455426.';
+
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>({ type: 'home' });
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
@@ -34,7 +39,7 @@ export default function App() {
   useEffect(() => {
     const parseUrl = () => {
       const path = window.location.pathname.replace(/^\/|\/$/g, '');
-      
+
       if (!path || path === '') {
         setCurrentRoute({ type: 'home' });
         return;
@@ -121,71 +126,14 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Update Page Title and Meta description on route change
+  // Scroll to top + GA4 tracking on route change (title/meta now handled by <Helmet> below)
   useEffect(() => {
-    let title = 'AC Service in Thane | AC Repair in Thane';
-    let metaDesc = 'Professional AC service, repair, gas filling, and installation in Thane West, Thane East, Ghodbunder Road, and Kalwa. Call +91 7021455426.';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    if (currentRoute.type === 'location' && currentRoute.slug) {
-      const loc = getLocationBySlug(currentRoute.slug);
-      if (loc) {
-        title = loc.metaTitle || `AC Services in ${loc.name} | AC Repair in ${loc.name}`;
-        metaDesc = loc.metaDescription || `Get reliable AC services in ${loc.name} for AC repair, installation, maintenance and servicing. Book trusted local AC technicians for quick service.`;
-      }
-    } else if (currentRoute.type === 'service' && currentRoute.slug) {
-      const srv = getServiceBySlug(currentRoute.slug);
-      if (srv) {
-        title = `${srv.title} in Thane | AC Services in Thane`;
-        metaDesc = `${srv.shortDesc} Available across Thane West, East, Ghodbunder Road & Kalwa. Call +91 7021455426.`;
-      }
-    } else if (currentRoute.type === 'blog-detail' && currentRoute.slug) {
-      const blog = getBlogBySlug(currentRoute.slug);
-      if (blog) {
-        title = `${blog.title} | AC Services in Thane`;
-        metaDesc = blog.excerpt;
-      }
-    } else if (currentRoute.type === 'services-list') {
-      title = 'AC Services in Thane — Full Service Catalog | AC Services in Thane';
-      metaDesc = 'Explore 14 professional air conditioning services including jet washing, repair, gas filling, and PCB diagnostics across Thane.';
-    } else if (currentRoute.type === 'locations-list') {
-      title = 'AC Service Areas in Thane (59 Localities) | AC Services in Thane';
-      metaDesc = 'Find certified AC service and repair across 59 Thane localities in Thane West, Thane East, Ghodbunder Road, and Kalwa.';
-    } else if (currentRoute.type === 'about') {
-      title = 'About Us | AC Services in Thane';
-      metaDesc = 'Learn about AC Services in Thane—delivering transparent, reliable doorstep air conditioner maintenance and repair across Thane.';
-    } else if (currentRoute.type === 'contact') {
-      title = 'Contact AC Services in Thane | +91 7021455426';
-      metaDesc = 'Contact our Thane AC service coordinator at +91 7021455426 or acservicesinthane@gmail.com for doorstep technician scheduling.';
-    } else if (currentRoute.type === 'blog-list') {
-      title = 'AC Maintenance Guides & Troubleshooting | AC Services in Thane';
-      metaDesc = 'Expert air conditioner troubleshooting, filter cleaning, and energy saving tips for Thane homeowners and businesses.';
-    }
-
-    document.title = title;
-
-    let metaDescriptionTag = document.querySelector('meta[name="description"]');
-    if (!metaDescriptionTag) {
-      metaDescriptionTag = document.createElement('meta');
-      metaDescriptionTag.setAttribute('name', 'description');
-      document.head.appendChild(metaDescriptionTag);
-    }
-    metaDescriptionTag.setAttribute('content', metaDesc);
-
-    const ogTitleTag = document.querySelector('meta[property="og:title"]');
-    if (ogTitleTag) {
-      ogTitleTag.setAttribute('content', title);
-    }
-
-    const ogDescTag = document.querySelector('meta[property="og:description"]');
-    if (ogDescTag) {
-      ogDescTag.setAttribute('content', metaDesc);
-    }
-
-    // Google Analytics 4 route tracking for client-side navigation
     if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
       (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('config', 'G-3TV2CB1TQ5', {
         page_path: window.location.pathname,
-        page_title: title,
+        page_title: document.title,
       });
     }
   }, [currentRoute]);
@@ -209,7 +157,6 @@ export default function App() {
     else if (route.type === 'sitemap') path = '/sitemap/';
 
     window.history.pushState({}, '', path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenBooking = (serviceName?: string, locationName?: string) => {
@@ -231,8 +178,58 @@ export default function App() {
     ? getBlogBySlug(currentRoute.slug)
     : undefined;
 
+  // Compute title/description per route — single source of truth for <Helmet>
+  let pageTitle = DEFAULT_TITLE;
+  let pageDesc = DEFAULT_DESC;
+  let canonicalPath = '/';
+
+  if (currentRoute.type === 'location' && currentLocation) {
+    pageTitle = currentLocation.metaTitle || `AC Services in ${currentLocation.name} | AC Repair in ${currentLocation.name}`;
+    pageDesc = currentLocation.metaDescription || `Get reliable AC services in ${currentLocation.name} for AC repair, installation, maintenance and servicing. Book trusted local AC technicians for quick service.`;
+    canonicalPath = `/${currentLocation.slug}/`;
+  } else if (currentRoute.type === 'service' && currentService) {
+    pageTitle = `${currentService.title} in Thane | ${SITE_NAME}`;
+    pageDesc = `${currentService.shortDesc} Available across Thane West, East, Ghodbunder Road & Kalwa. Call +91 7021455426.`;
+    canonicalPath = `/${currentService.slug}/`;
+  } else if (currentRoute.type === 'blog-detail' && currentBlog) {
+    pageTitle = `${currentBlog.title} | ${SITE_NAME}`;
+    pageDesc = currentBlog.excerpt;
+    canonicalPath = `/blog/${currentBlog.slug}/`;
+  } else if (currentRoute.type === 'services-list') {
+    pageTitle = `${SITE_NAME} — Full Service Catalog | ${SITE_NAME}`;
+    pageDesc = 'Explore 14 professional air conditioning services including jet washing, repair, gas filling, and PCB diagnostics across Thane.';
+    canonicalPath = '/services/';
+  } else if (currentRoute.type === 'locations-list') {
+    pageTitle = `AC Service Areas in Thane (59 Localities) | ${SITE_NAME}`;
+    pageDesc = 'Find certified AC service and repair across 59 Thane localities in Thane West, Thane East, Ghodbunder Road, and Kalwa.';
+    canonicalPath = '/service-areas/';
+  } else if (currentRoute.type === 'about') {
+    pageTitle = `About Us | ${SITE_NAME}`;
+    pageDesc = `Learn about ${SITE_NAME}—delivering transparent, reliable doorstep air conditioner maintenance and repair across Thane.`;
+    canonicalPath = '/about/';
+  } else if (currentRoute.type === 'contact') {
+    pageTitle = `Contact ${SITE_NAME} | +91 7021455426`;
+    pageDesc = 'Contact our Thane AC service coordinator at +91 7021455426 or acservicesinthane@gmail.com for doorstep technician scheduling.';
+    canonicalPath = '/contact/';
+  } else if (currentRoute.type === 'blog-list') {
+    pageTitle = `AC Maintenance Guides & Troubleshooting | ${SITE_NAME}`;
+    pageDesc = 'Expert air conditioner troubleshooting, filter cleaning, and energy saving tips for Thane homeowners and businesses.';
+    canonicalPath = '/blog/';
+  }
+
+  const canonicalUrl = `https://acservicesinthane.com${canonicalPath}`; // TODO: replace with your real domain
+
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#172033] font-sans antialiased selection:bg-[#0B72E7] selection:text-white">
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDesc} />
+        <meta property="og:url" content={canonicalUrl} />
+      </Helmet>
+
       {/* Schema Markup for SEO/AEO/GEO */}
       <SchemaMarkup
         currentRoute={currentRoute}
