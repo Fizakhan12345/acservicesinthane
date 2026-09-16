@@ -215,6 +215,22 @@ export default function App() {
     pageTitle = `AC Maintenance Guides & Troubleshooting | ${SITE_NAME}`;
     pageDesc = 'Expert air conditioner troubleshooting, filter cleaning, and energy saving tips for Thane homeowners and businesses.';
     canonicalPath = '/blog/';
+  } else if (currentRoute.type === 'faq') {
+    pageTitle = `AC Service FAQs in Thane | ${SITE_NAME}`;
+    pageDesc = 'Answers to common questions about AC repair, servicing, gas filling, and installation across Thane, Ghodbunder Road, and Kalwa.';
+    canonicalPath = '/faq/';
+  } else if (currentRoute.type === 'privacy') {
+    pageTitle = `Privacy Policy | ${SITE_NAME}`;
+    pageDesc = `Read the privacy policy for ${SITE_NAME}, covering how we handle customer data for AC service bookings across Thane.`;
+    canonicalPath = '/privacy/';
+  } else if (currentRoute.type === 'terms') {
+    pageTitle = `Terms & Conditions | ${SITE_NAME}`;
+    pageDesc = `Terms and conditions governing AC service, repair, and installation bookings with ${SITE_NAME}.`;
+    canonicalPath = '/terms/';
+  } else if (currentRoute.type === 'disclaimer') {
+    pageTitle = `Disclaimer | ${SITE_NAME}`;
+    pageDesc = `Disclaimer regarding the services, pricing, and information provided by ${SITE_NAME}.`;
+    canonicalPath = '/disclaimer/';
   }
 
   const canonicalUrl = `https://acservicesinthane.com${canonicalPath}`; // TODO: replace with your real domain
