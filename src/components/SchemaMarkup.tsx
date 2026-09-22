@@ -27,12 +27,12 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'HVACBusiness',
-      '@id': 'https://acservicesinthane.com/#business',
+      '@id': 'https://www.acservicesinthane.com/#business',
       name: 'AC Services in Thane',
-      url: 'https://acservicesinthane.com/',
+      url: 'https://www.acservicesinthane.com/',
       telephone: '+91 7021455426',
       email: 'acservicesinthane@gmail.com',
-      image: 'https://acservicesinthane.com/logo.png',
+      image: 'https://www.acservicesinthane.com/logo.png',
       priceRange: '₹₹',
       address: {
         '@type': 'PostalAddress',
@@ -80,10 +80,10 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'AC Services in Thane',
-      url: 'https://acservicesinthane.com/',
+      url: 'https://www.acservicesinthane.com/',
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://acservicesinthane.com/?q={search_term_string}',
+        target: 'https://www.acservicesinthane.com/?q={search_term_string}',
         'query-input': 'required name=search_term_string'
       }
     });
@@ -99,19 +99,19 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
             '@type': 'ListItem',
             position: 1,
             name: 'Home',
-            item: 'https://acservicesinthane.com/'
+            item: 'https://www.acservicesinthane.com/'
           },
           {
             '@type': 'ListItem',
             position: 2,
             name: 'Service Areas',
-            item: 'https://acservicesinthane.com/service-areas/'
+            item: 'https://www.acservicesinthane.com/service-areas/'
           },
           {
             '@type': 'ListItem',
             position: 3,
             name: `AC Service in ${location.name}`,
-            item: `https://acservicesinthane.com/${location.slug}/`
+            item: `https://www.acservicesinthane.com/${location.slug}/`
           }
         ]
       });
@@ -204,10 +204,10 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
         publisher: {
           '@type': 'Organization',
           name: 'AC Services in Thane',
-          url: 'https://acservicesinthane.com/'
+          url: 'https://www.acservicesinthane.com/'
         },
         datePublished: '2026-08-01',
-        mainEntityOfPage: `https://acservicesinthane.com/blog/${blog.slug}/`
+        mainEntityOfPage: `https://www.acservicesinthane.com/blog/${blog.slug}/`
       });
     }
 

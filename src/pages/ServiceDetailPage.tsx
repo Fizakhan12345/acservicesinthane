@@ -97,7 +97,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
                 </a>
 
                 <a
-                  href={`https://wa.me/917021455426?text=Hi%2C%20I%20need%20${encodeURIComponent(service.title)}%20in%20Thane`}
+                  href={`https://wa.me/7021455426?text=Hi%2C%20I%20need%20${encodeURIComponent(service.title)}%20in%20Thane`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-xs transition-colors whitespace-nowrap"

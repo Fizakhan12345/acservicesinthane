@@ -36,7 +36,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
       `🛠️ *Service:* ${formData.service}\n` +
       `📝 *Message:* ${formData.message || 'Need AC service support'}`
     );
-    window.open(`https://wa.me/917021455426?text=${text}`, '_blank');
+    window.open(`https://wa.me/7021455426?text=${text}`, '_blank');
   };
 
   return (
@@ -91,7 +91,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ navigate }) => {
 
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+                    href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-green-50 transition-colors group"

@@ -127,7 +127,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
                 </a>
 
                 <a
-                  href={`https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
+                  href={`https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-xs transition-colors whitespace-nowrap"
@@ -449,7 +449,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({
             </a>
 
             <a
-              href={`https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
+              href={`https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20${encodeURIComponent(location.name)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-sm shadow-md transition-colors flex items-center gap-2"

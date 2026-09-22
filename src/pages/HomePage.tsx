@@ -36,8 +36,7 @@ import { BrandSlider } from '../components/BrandSlider';
 import { TrustSection } from '../components/TrustSection';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { PageRoute } from '../types';
-import { Helmet } from 'react-helmet-async';
-import { getLocationBySlug } from '../data/locations';
+
 interface HomePageProps {
   navigate: (route: PageRoute) => void;
   onOpenBooking: (serviceName?: string, locationName?: string) => void;
@@ -74,7 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onOpenBooking }) =
       answer: 'Our standard jet pump deep cleaning starts from ₹549 per unit with transparent pricing, honest part quotes, and zero advance payment required.'
     }
   ];
-  const homeLocation = getLocationBySlug('ac-service-in-thane');
+
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
       case 'Sparkles': return Sparkles;
@@ -97,22 +96,6 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onOpenBooking }) =
 
   return (
     <div className="space-y-0">
-            {homeLocation && (
-        <Helmet>
-          <title>{homeLocation.metaTitle}</title>
-          <meta name="description" content={homeLocation.metaDescription} />
-          <link rel="canonical" href="https://acservicesinthane.com/" />
-
-          <meta property="og:title" content={homeLocation.metaTitle} />
-          <meta property="og:description" content={homeLocation.metaDescription} />
-          <meta property="og:url" content="https://acservicesinthane.com/" />
-          <meta property="og:type" content="website" />
-
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={homeLocation.metaTitle} />
-          <meta name="twitter:description" content={homeLocation.metaDescription} />
-        </Helmet>
-      )}
       {/* 1. HERO SLIDER SECTION */}
       <HeroSlider onOpenBooking={onOpenBooking} />
 
@@ -369,7 +352,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate, onOpenBooking }) =
 
               <a
                 id="final-whatsapp-btn"
-                href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+                href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-7 py-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-base shadow-xs transition-all transform hover:-translate-y-0.5 flex items-center gap-2"

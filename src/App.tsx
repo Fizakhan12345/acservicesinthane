@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { PageRoute } from './types';
 import { getLocationBySlug } from './data/locations';
 import { getServiceBySlug } from './data/services';
@@ -24,139 +23,132 @@ import { BlogDetailPage } from './pages/BlogDetailPage';
 import { LegalPages } from './pages/LegalPages';
 import { FAQAccordion } from './components/FAQAccordion';
 import { BrandSlider } from './components/BrandSlider';
+import { getSeoForPath } from './data/seoRoutes';
 
-const SITE_NAME = 'AC Services in Thane';
-const DEFAULT_TITLE = 'AC Service in Thane | AC Repair in Thane';
-const DEFAULT_DESC = 'Professional AC service, repair, gas filling, and installation in Thane West, Thane East, Ghodbunder Road, and Kalwa. Call +91 7021455426.';
+export function parsePathToRoute(rawPath: string): PageRoute {
+  const path = rawPath.replace(/^\/|\/$/g, '');
+  
+  if (!path || path === '') return { type: 'home' };
+  if (path === 'services' || path === 'ac-services') return { type: 'services-list' };
+  if (path === 'service-areas' || path === 'locations') return { type: 'locations-list' };
+  if (path === 'about' || path === 'about-us') return { type: 'about' };
+  if (path === 'contact' || path === 'contact-us') return { type: 'contact' };
+  if (path === 'blog' || path === 'blogs' || path === 'guides') return { type: 'blog-list' };
+  if (path.startsWith('blog/')) {
+    return { type: 'blog-detail', slug: path.replace(/^blog\//, '') };
+  }
+  if (path === 'faq' || path === 'faqs') return { type: 'faq' };
+  if (path === 'privacy' || path === 'privacy-policy') return { type: 'privacy' };
+  if (path === 'terms' || path === 'terms-and-conditions') return { type: 'terms' };
+  if (path === 'disclaimer') return { type: 'disclaimer' };
+  if (path === 'sitemap') return { type: 'sitemap' };
+
+  // Check if matches a service slug
+  const service = getServiceBySlug(path);
+  if (service) return { type: 'service', slug: service.slug };
+
+  // Check if matches a location slug
+  const location = getLocationBySlug(path);
+  if (location) return { type: 'location', slug: location.slug };
+
+  return { type: 'home' };
+}
+
+export function routeToPath(route: PageRoute): string {
+  if (route.type === 'service' && route.slug) return `/${route.slug}/`;
+  if (route.type === 'location' && route.slug) return `/${route.slug}/`;
+  if (route.type === 'services-list') return '/services/';
+  if (route.type === 'locations-list') return '/service-areas/';
+  if (route.type === 'about') return '/about/';
+  if (route.type === 'contact') return '/contact/';
+  if (route.type === 'blog-list') return '/blog/';
+  if (route.type === 'blog-detail' && route.slug) return `/blog/${route.slug}/`;
+  if (route.type === 'faq') return '/faq/';
+  if (route.type === 'privacy') return '/privacy/';
+  if (route.type === 'terms') return '/terms/';
+  if (route.type === 'disclaimer') return '/disclaimer/';
+  if (route.type === 'sitemap') return '/sitemap/';
+  return '/';
+}
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>({ type: 'home' });
+  const [currentRoute, setCurrentRoute] = useState<PageRoute>(() => {
+    if (typeof window !== 'undefined') {
+      return parsePathToRoute(window.location.pathname);
+    }
+    return { type: 'home' };
+  });
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string | undefined>();
   const [selectedLocationForBooking, setSelectedLocationForBooking] = useState<string | undefined>();
 
-  // Route matching from URL path
+  // Route matching from URL path on back/forward navigation
   useEffect(() => {
-    const parseUrl = () => {
-      const path = window.location.pathname.replace(/^\/|\/$/g, '');
-
-      if (!path || path === '') {
-        setCurrentRoute({ type: 'home' });
-        return;
-      }
-
-      if (path === 'services' || path === 'ac-services') {
-        setCurrentRoute({ type: 'services-list' });
-        return;
-      }
-
-      if (path === 'service-areas' || path === 'locations') {
-        setCurrentRoute({ type: 'locations-list' });
-        return;
-      }
-
-      if (path === 'about' || path === 'about-us') {
-        setCurrentRoute({ type: 'about' });
-        return;
-      }
-
-      if (path === 'contact' || path === 'contact-us') {
-        setCurrentRoute({ type: 'contact' });
-        return;
-      }
-
-      if (path === 'blog' || path === 'blogs' || path === 'guides') {
-        setCurrentRoute({ type: 'blog-list' });
-        return;
-      }
-
-      if (path.startsWith('blog/')) {
-        const blogSlug = path.replace(/^blog\//, '');
-        setCurrentRoute({ type: 'blog-detail', slug: blogSlug });
-        return;
-      }
-
-      if (path === 'faq' || path === 'faqs') {
-        setCurrentRoute({ type: 'faq' });
-        return;
-      }
-
-      if (path === 'privacy' || path === 'privacy-policy') {
-        setCurrentRoute({ type: 'privacy' });
-        return;
-      }
-
-      if (path === 'terms' || path === 'terms-and-conditions') {
-        setCurrentRoute({ type: 'terms' });
-        return;
-      }
-
-      if (path === 'disclaimer') {
-        setCurrentRoute({ type: 'disclaimer' });
-        return;
-      }
-
-      if (path === 'sitemap') {
-        setCurrentRoute({ type: 'sitemap' });
-        return;
-      }
-
-      // Check if matches a service slug
-      const service = getServiceBySlug(path);
-      if (service) {
-        setCurrentRoute({ type: 'service', slug: service.slug });
-        return;
-      }
-
-      // Check if matches a location slug
-      const location = getLocationBySlug(path);
-      if (location) {
-        setCurrentRoute({ type: 'location', slug: location.slug });
-        return;
-      }
-
-      // Default fallback
-      setCurrentRoute({ type: 'home' });
+    const handlePopState = () => {
+      setCurrentRoute(parsePathToRoute(window.location.pathname));
     };
 
-    parseUrl();
-
-    const handlePopState = () => parseUrl();
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Scroll to top + GA4 tracking on route change (title/meta now handled by <Helmet> below)
+  // Synchronize Page Title, Canonical, Meta Description, Open Graph & Twitter tags
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const routePath = routeToPath(currentRoute);
+    const seo = getSeoForPath(routePath);
 
+    document.title = seo.title;
+
+    // Helper to get or create a tag
+    const getOrCreateMeta = (selector: string, attrName: string, attrVal: string): HTMLMetaElement => {
+      let el = document.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attrName, attrVal);
+        document.head.appendChild(el);
+      }
+      return el;
+    };
+
+    // Description
+    const metaDesc = getOrCreateMeta('meta[name="description"]', 'name', 'description');
+    metaDesc.setAttribute('content', seo.description);
+
+    // Canonical
+    let canonicalTag = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonicalTag) {
+      canonicalTag = document.createElement('link');
+      canonicalTag.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalTag);
+    }
+    canonicalTag.setAttribute('href', seo.canonical);
+
+    // OpenGraph
+    getOrCreateMeta('meta[property="og:title"]', 'property', 'og:title').setAttribute('content', seo.ogTitle);
+    getOrCreateMeta('meta[property="og:description"]', 'property', 'og:description').setAttribute('content', seo.ogDescription);
+    getOrCreateMeta('meta[property="og:url"]', 'property', 'og:url').setAttribute('content', seo.ogUrl);
+    getOrCreateMeta('meta[property="og:type"]', 'property', 'og:type').setAttribute('content', seo.ogType);
+    getOrCreateMeta('meta[property="og:site_name"]', 'property', 'og:site_name').setAttribute('content', 'AC Services in Thane');
+
+    // Twitter
+    getOrCreateMeta('meta[name="twitter:card"]', 'name', 'twitter:card').setAttribute('content', 'summary_large_image');
+    getOrCreateMeta('meta[name="twitter:title"]', 'name', 'twitter:title').setAttribute('content', seo.twitterTitle);
+    getOrCreateMeta('meta[name="twitter:description"]', 'name', 'twitter:description').setAttribute('content', seo.twitterDescription);
+
+    // Google Analytics 4 route tracking for client-side navigation
     if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
       (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('config', 'G-3TV2CB1TQ5', {
-        page_path: window.location.pathname,
-        page_title: document.title,
+        page_path: routePath,
+        page_title: seo.title,
       });
     }
   }, [currentRoute]);
 
   const navigate = (route: PageRoute) => {
     setCurrentRoute(route);
-
-    let path = '/';
-    if (route.type === 'service' && route.slug) path = `/${route.slug}/`;
-    else if (route.type === 'location' && route.slug) path = `/${route.slug}/`;
-    else if (route.type === 'services-list') path = '/services/';
-    else if (route.type === 'locations-list') path = '/service-areas/';
-    else if (route.type === 'about') path = '/about/';
-    else if (route.type === 'contact') path = '/contact/';
-    else if (route.type === 'blog-list') path = '/blog/';
-    else if (route.type === 'blog-detail' && route.slug) path = `/blog/${route.slug}/`;
-    else if (route.type === 'faq') path = '/faq/';
-    else if (route.type === 'privacy') path = '/privacy/';
-    else if (route.type === 'terms') path = '/terms/';
-    else if (route.type === 'disclaimer') path = '/disclaimer/';
-    else if (route.type === 'sitemap') path = '/sitemap/';
-
+    const path = routeToPath(route);
     window.history.pushState({}, '', path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenBooking = (serviceName?: string, locationName?: string) => {
@@ -178,74 +170,8 @@ export default function App() {
     ? getBlogBySlug(currentRoute.slug)
     : undefined;
 
-  // Compute title/description per route — single source of truth for <Helmet>
-  let pageTitle = DEFAULT_TITLE;
-  let pageDesc = DEFAULT_DESC;
-  let canonicalPath = '/';
-
-  if (currentRoute.type === 'location' && currentLocation) {
-    pageTitle = currentLocation.metaTitle || `AC Services in ${currentLocation.name} | AC Repair in ${currentLocation.name}`;
-    pageDesc = currentLocation.metaDescription || `Get reliable AC services in ${currentLocation.name} for AC repair, installation, maintenance and servicing. Book trusted local AC technicians for quick service.`;
-    canonicalPath = `/${currentLocation.slug}/`;
-  } else if (currentRoute.type === 'service' && currentService) {
-    pageTitle = `${currentService.title} in Thane | ${SITE_NAME}`;
-    pageDesc = `${currentService.shortDesc} Available across Thane West, East, Ghodbunder Road & Kalwa. Call +91 7021455426.`;
-    canonicalPath = `/${currentService.slug}/`;
-  } else if (currentRoute.type === 'blog-detail' && currentBlog) {
-    pageTitle = `${currentBlog.title} | ${SITE_NAME}`;
-    pageDesc = currentBlog.excerpt;
-    canonicalPath = `/blog/${currentBlog.slug}/`;
-  } else if (currentRoute.type === 'services-list') {
-    pageTitle = `${SITE_NAME} — Full Service Catalog | ${SITE_NAME}`;
-    pageDesc = 'Explore 14 professional air conditioning services including jet washing, repair, gas filling, and PCB diagnostics across Thane.';
-    canonicalPath = '/services/';
-  } else if (currentRoute.type === 'locations-list') {
-    pageTitle = `AC Service Areas in Thane (59 Localities) | ${SITE_NAME}`;
-    pageDesc = 'Find certified AC service and repair across 59 Thane localities in Thane West, Thane East, Ghodbunder Road, and Kalwa.';
-    canonicalPath = '/service-areas/';
-  } else if (currentRoute.type === 'about') {
-    pageTitle = `About Us | ${SITE_NAME}`;
-    pageDesc = `Learn about ${SITE_NAME}—delivering transparent, reliable doorstep air conditioner maintenance and repair across Thane.`;
-    canonicalPath = '/about/';
-  } else if (currentRoute.type === 'contact') {
-    pageTitle = `Contact ${SITE_NAME} | +91 7021455426`;
-    pageDesc = 'Contact our Thane AC service coordinator at +91 7021455426 or acservicesinthane@gmail.com for doorstep technician scheduling.';
-    canonicalPath = '/contact/';
-  } else if (currentRoute.type === 'blog-list') {
-    pageTitle = `AC Maintenance Guides & Troubleshooting | ${SITE_NAME}`;
-    pageDesc = 'Expert air conditioner troubleshooting, filter cleaning, and energy saving tips for Thane homeowners and businesses.';
-    canonicalPath = '/blog/';
-  } else if (currentRoute.type === 'faq') {
-    pageTitle = `AC Service FAQs in Thane | ${SITE_NAME}`;
-    pageDesc = 'Answers to common questions about AC repair, servicing, gas filling, and installation across Thane, Ghodbunder Road, and Kalwa.';
-    canonicalPath = '/faq/';
-  } else if (currentRoute.type === 'privacy') {
-    pageTitle = `Privacy Policy | ${SITE_NAME}`;
-    pageDesc = `Read the privacy policy for ${SITE_NAME}, covering how we handle customer data for AC service bookings across Thane.`;
-    canonicalPath = '/privacy/';
-  } else if (currentRoute.type === 'terms') {
-    pageTitle = `Terms & Conditions | ${SITE_NAME}`;
-    pageDesc = `Terms and conditions governing AC service, repair, and installation bookings with ${SITE_NAME}.`;
-    canonicalPath = '/terms/';
-  } else if (currentRoute.type === 'disclaimer') {
-    pageTitle = `Disclaimer | ${SITE_NAME}`;
-    pageDesc = `Disclaimer regarding the services, pricing, and information provided by ${SITE_NAME}.`;
-    canonicalPath = '/disclaimer/';
-  }
-
-  const canonicalUrl = `https://acservicesinthane.com${canonicalPath}`; // TODO: replace with your real domain
-
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#172033] font-sans antialiased selection:bg-[#0B72E7] selection:text-white">
-      <Helmet>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDesc} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDesc} />
-        <meta property="og:url" content={canonicalUrl} />
-      </Helmet>
-
       {/* Schema Markup for SEO/AEO/GEO */}
       <SchemaMarkup
         currentRoute={currentRoute}

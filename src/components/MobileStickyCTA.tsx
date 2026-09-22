@@ -26,7 +26,7 @@ export const MobileStickyCTA: React.FC<MobileStickyCTAProps> = ({ onOpenBooking 
         {/* WhatsApp */}
         <a
           id="mobile-sticky-whatsapp"
-          href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+          href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
           target="_blank"
           rel="noopener noreferrer"
           className="flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-[#25D366] text-white text-xs font-bold shadow-xs active:scale-95 transition-all"

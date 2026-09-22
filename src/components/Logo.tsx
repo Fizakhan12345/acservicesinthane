@@ -16,7 +16,7 @@ export const Logo: React.FC<LogoProps> = ({
   alt = 'AC Services in Thane'
 }) => {
   const isDark = variant === 'dark';
-  const logoSrc = isDark ? '/ACServicesLogo.png' : '/ACServicesLogo.png';
+  const logoSrc = isDark ? '/logo-dark.svg' : '/logo.svg';
 
   const sizeClasses = {
     sm: 'h-8 sm:h-9',

@@ -111,8 +111,6 @@ export const ACServiceVisualSection: React.FC<ACServiceVisualSectionProps> = ({ 
             </div>
           </div>
 
-          
-
         </div>
       </div>
     </section>

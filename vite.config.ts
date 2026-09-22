@@ -1,11 +1,23 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig, Plugin } from 'vite';
+import { getSeoForPath, injectSeoMetadata } from './src/data/seoRoutes';
+
+function seoMetadataPlugin(): Plugin {
+  return {
+    name: 'vite-seo-metadata-plugin',
+    transformIndexHtml(html, ctx) {
+      const requestPath = (ctx.originalUrl && ctx.originalUrl !== '/index.html') ? ctx.originalUrl : (ctx.path || '/');
+      const seo = getSeoForPath(requestPath);
+      return injectSeoMetadata(html, seo);
+    },
+  };
+}
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), tailwindcss(), seoMetadataPlugin()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

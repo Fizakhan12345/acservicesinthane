@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
             className="flex items-center cursor-pointer group shrink-0"
           >
             <img
-              src="/ACServicesLogo.png"
+              src="/logo.svg"
               alt="AC Services in Thane"
               className="h-10 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-105"
               referrerPolicy="no-referrer"
@@ -49,17 +49,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
               }`}
             >
               Home
-            </button>
-
-            <button
-              onClick={() => handleNav({ type: 'about' })}
-              className={`px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                currentRoute.type === 'about'
-                  ? 'text-[#0B72E7] bg-[#EAF6FF]'
-                  : 'text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50'
-              }`}
-            >
-              About
             </button>
 
             {/* Services Dropdown */}
@@ -137,18 +126,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
             </div>
 
             <button
-              onClick={() => handleNav({ type: 'locations-list' })}
-              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                currentRoute.type === 'location' || currentRoute.type === 'locations-list'
-                  ? 'text-[#0B72E7] bg-[#EAF6FF]'
-                  : 'text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50'
-              }`}
-            >
-              <MapPin className="w-3.5 h-3.5 text-[#0B72E7]" />
-              <span>Service Areas</span>
-            </button>
-
-            <button
               onClick={() => handleNav({ type: 'service', slug: 'ac-repair' })}
               className="px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50 transition-colors cursor-pointer"
             >
@@ -174,6 +151,29 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
               className="px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50 transition-colors cursor-pointer"
             >
               Gas Filling
+            </button>
+
+            <button
+              onClick={() => handleNav({ type: 'locations-list' })}
+              className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                currentRoute.type === 'location' || currentRoute.type === 'locations-list'
+                  ? 'text-[#0B72E7] bg-[#EAF6FF]'
+                  : 'text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50'
+              }`}
+            >
+              <MapPin className="w-3.5 h-3.5 text-[#0B72E7]" />
+              <span>Service Areas</span>
+            </button>
+
+            <button
+              onClick={() => handleNav({ type: 'about' })}
+              className={`px-2.5 py-1.5 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors cursor-pointer ${
+                currentRoute.type === 'about'
+                  ? 'text-[#0B72E7] bg-[#EAF6FF]'
+                  : 'text-[#172033] hover:text-[#0B72E7] hover:bg-slate-50'
+              }`}
+            >
+              About
             </button>
 
             <button
@@ -224,7 +224,7 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, navigate, onOpenBo
             </a>
 
             <a
-              href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
+              href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg bg-green-50 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors"

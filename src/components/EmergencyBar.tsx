@@ -31,7 +31,7 @@ export const EmergencyBar: React.FC<EmergencyBarProps> = ({ onOpenBooking }) => 
 
           <a
             id="emergency-whatsapp-btn"
-            href="https://wa.me/917021455426?text=Hi%2C%20I%20need%20urgent%20AC%20repair%20in%20Thane"
+            href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20urgent%20AC%20repair%20in%20Thane"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs sm:text-sm font-semibold transition-colors shadow-xs"
