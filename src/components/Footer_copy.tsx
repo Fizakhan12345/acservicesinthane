@@ -1,4 +1,3 @@
-import React from 'react';
 import { Phone, Mail, MapPin, Sparkles, ShieldCheck, Heart, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { PageRoute } from '../types';
 import { WhatsAppIcon } from './WhatsAppIcon';
@@ -92,10 +91,10 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                 <span>WhatsApp Instant Chat</span>
               </a>
             </div>
-
+          </div>
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-3">
-              <a
+              
                 href="https://wa.me/7021455426?text=Hi%2C%20I%20need%20AC%20service%20in%20Thane"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -104,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               >
                 <WhatsAppIcon className="w-4 h-4 fill-current" />
               </a>
-              <a
+              
                 href="https://www.facebook.com/acservicesinthane"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -113,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               >
                 <Facebook className="w-4 h-4" />
               </a>
-              <a
+              
                 href="https://www.instagram.com/acservicesinthane"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -122,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               >
                 <Instagram className="w-4 h-4" />
               </a>
-              <a
+              
                 href="https://www.linkedin.com/company/acservicesinthane/about/?viewAsMember=true"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -132,8 +131,6 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                 <Linkedin className="w-4 h-4" />
               </a>
             </div>
-          </div>
-
           {/* Column 2: AC Services */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-[#16A9E0] mb-4">
