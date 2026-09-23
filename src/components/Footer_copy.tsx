@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               className="cursor-pointer group inline-block"
             >
               <img
-                src="/logo.svg"
+                src="/logo.png"
                 alt="AC Services in Thane"
                 className="h-11 sm:h-12 w-auto object-contain bg-white/95 px-3 py-1.5 rounded-lg transition-transform group-hover:scale-105 shadow-sm"
                 referrerPolicy="no-referrer"
